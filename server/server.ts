@@ -17,11 +17,13 @@ app.get('/api/products', async (req, res) => {
     const db = client.db('milkDb');
     const collection = db.collection('products');
 
-    const products = await collection.find().toArray();
+    const products = await collection.findOne();
+
+    const results = products?.results || [];
 
     client.close();
 
-    res.json(products);
+    res.json(results);
   } catch (err) {
     console.error('Error retrieving products: ', err);
     res.status(500).json({ error: 'Error retrieving products'});
