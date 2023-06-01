@@ -3,6 +3,14 @@ A store to buy all kinds of milk :)
 
 &nbsp;
 
+### This application uses a MongoDB database
+Database name: milkDb
+&nbsp;
+
+Collection(s) in the database: products
+
+&nbsp;
+
 ## How to run the application?
 Step 1 - Start frontend:
 ```
