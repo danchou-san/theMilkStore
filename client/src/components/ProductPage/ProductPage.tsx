@@ -8,14 +8,14 @@ import 'react-toastify/dist/ReactToastify.css';
 const ProductPage = () => {
   const [data, setData] = useState<Product | null>(null);
   const { productId } = useParams<{ productId: string }>();
-  const [value, setValue] = useState(10);
+  const [value, setValue] = useState(1);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setValue(Number(event.target.value));
   };
 
   const orderToast = () => {
-    toast('Order is made!', { autoClose: 3000 });
+    toast.success('Order is made!', { autoClose: 3000 });
   };
 
   useEffect(() => {
@@ -33,8 +33,8 @@ const ProductPage = () => {
   }, []);
 
   return (
-    <div className='mt-10 flex flex-col items-center'>
-      <div className='w-2/5 p-4 bg-white mb-10 rounded-md border-2 border-solid border-neutral-200'>
+    <div className='p-4 mt-10 flex flex-col items-center'>
+      <div className='p-4 bg-white mb-10 rounded-md border-2 border-solid border-neutral-200'>
       <Link to='/' className='flex flex-row items-center'>
         <svg
             aria-hidden="true"
@@ -51,22 +51,22 @@ const ProductPage = () => {
           <button>Back</button>
       </Link>
       
-        <div className='flex justify-center'>
+        <div className='flex justify-center laptop:flex-row phone:flex-col'>
           <div className='flex justify-center p-10'>
-            <img className='w-48 mt-2 mb-8' src={logo} alt='Not Found :(' />
+            <img className='w-80 mt-2 mb-8' src={logo} alt='Not Found :(' />
           </div>
 
-          <div className='p-10'>
+          <div className='laptop:p-8 phone:p-4'>
             <p>{data?.name}</p>
             <p className='text-neutral-500'>{data?.type}</p>
-            <p className='text-neutral-500'>44 liter</p>
+            <p className='text-neutral-500'>{data?.storage} liter</p>
             <br />
             <br />
             <div className="flex flex-col justify-center items-center">
               <input
                 type="range"
                 min="1"
-                max="44"
+                max={data?.storage}
                 value={value}
                 className="w-full h-4 bg-slider rounded-lg appearance-none focus:outline-none accent-white"
                 onChange={handleChange}
@@ -76,7 +76,7 @@ const ProductPage = () => {
               </div>
             </div>
             <br />
-            <button className='bg-order p-2 px-12 rounded-md' onClick={orderToast}>Order</button>
+            <button className='bg-order p-2 px-12 w-full rounded-md' onClick={orderToast}>Order</button>
             <ToastContainer />
           </div>
         </div>

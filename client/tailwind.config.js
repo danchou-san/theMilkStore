@@ -15,6 +15,11 @@ export default {
       spacing: {
         'card': '330px',
         'filter': '360px'
+      },
+      screens: {
+        'phone': '0px',
+        'tablet': '640px',
+        'laptop': '1162px',
       }
     },
   },

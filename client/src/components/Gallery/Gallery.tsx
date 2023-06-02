@@ -89,10 +89,10 @@ const Gallery = () => {
 
   return (
     <div className='mt-10 flex flex-col items-center'>
-      <div className='w-3/5'>
-        <div className='flex flex-row items-center justify-between'>
+      <div className='laptop:w-3/5 tablet:w-3/5 phone:w-10/12'>
+        <div className='flex laptop:flex-row phone:flex-col items-center justify-between'>
 
-          <div className="relative w-card">
+          <div className="relative laptop:w-card phone:w-full">
             <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                 <svg
                   aria-hidden="true"
@@ -123,14 +123,14 @@ const Gallery = () => {
             id='filterButton'
             ref={dropdownRef}
             data-dropdown-toggle='filterDropdown'
-            className='px-5 py-2'
+            className='px-5 py-2 my-2'
             onClick={() => handleFilterIsOpen()}
           >Filter</button>
 
           {filterIsOpen && (
             <div
               style={dropdownPosition}
-              className='z-50 absolute bg-white p-4 px-6 w-filter rounded-md border-2 border-neutral-200'
+              className='z-50 laptop:absolute bg-white p-4 px-6 laptop:w-filter phone:w-full rounded-md border-2 border-neutral-200'
               >
               <p className='text-gray-500'>Filter</p>
               <p className='font-medium'>Milk Type</p>
@@ -164,7 +164,7 @@ const Gallery = () => {
         <div className='flex flex-wrap justify-between'>
           {slicedData.length > 0 ? (
             slicedData && slicedData.map((item: Product) => (
-              <ProductCard name={item.name} type={item.type} id={item.id} />
+              <ProductCard name={item.name} type={item.type} storage={item.storage} id={item.id} />
             ))) : (
               <div className='flex justify-center w-full my-20'>
                 <p className='text-2xl'>No results &#58;&#40;</p>
