@@ -1,6 +1,8 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import './App.css'
 import './types/types';
 import Gallery from './components/Gallery/Gallery';
+import ProductPage from "./components/ProductPage/ProductPage";
 
 const App = () => {
 
@@ -10,7 +12,12 @@ const App = () => {
         <h1 className='navbar-brand'>THE MILK STORE</h1>
       </nav>
 
-      <Gallery />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Gallery />} />
+          <Route path="/product/:productId" element={<ProductPage />} />
+        </Routes>
+      </BrowserRouter>
     </>
   )
 }

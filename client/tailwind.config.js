@@ -8,7 +8,9 @@ export default {
     extend: {
       colors: {
         'search-bg': '#F9F7F8',
-        'input-outline': '#CE8BA2'
+        'input-outline': '#CE8BA2',
+        'order': '#D8D8D8',
+        'slider': '#08F909'
       },
       spacing: {
         'card': '330px',

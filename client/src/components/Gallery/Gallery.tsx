@@ -135,7 +135,7 @@ const Gallery = () => {
               <p className='text-gray-500'>Filter</p>
               <p className='font-medium'>Milk Type</p>
               <br />
-              <ul>
+              <ul className='h-40 overflow-y-scroll'>
                 {uniqueItems && uniqueItems.map(item => (
                   <li>
                     <div className='flex items-center pb-2'>
@@ -164,7 +164,7 @@ const Gallery = () => {
         <div className='flex flex-wrap justify-between'>
           {slicedData.length > 0 ? (
             slicedData && slicedData.map((item: Product) => (
-              <ProductCard name={item.name} type={item.type} />
+              <ProductCard name={item.name} type={item.type} id={item.id} />
             ))) : (
               <div className='flex justify-center w-full my-20'>
                 <p className='text-2xl'>No results &#58;&#40;</p>
